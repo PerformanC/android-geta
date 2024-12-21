@@ -10,9 +10,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          submodules: 'true'
-          token: ${{ secrets.PERSONAL }}
 
       - name: Install dev tools
         run: sudo apt-get install -y curl
@@ -37,9 +34,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          submodules: 'true'
-          token: ${{ secrets.PERSONAL }}
 
       - name: Install luvit
         shell: pwsh
