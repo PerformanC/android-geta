@@ -1,4 +1,4 @@
-require('luaex')
+require('./luaex.lua')
 
 local childprocess = require('childprocess')
 local fs = require('fs')
