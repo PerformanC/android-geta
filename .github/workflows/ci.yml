@@ -49,7 +49,7 @@ jobs:
         run: ./lit install
 
       - name: Build bot
-        run: ./luvit make
+        run: ./lit make
 
       - name: Make build folder
         run: mkdir build
