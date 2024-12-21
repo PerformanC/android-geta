@@ -3,7 +3,7 @@
     version = "1.0.0",
     description = "A binary for getting logs",
     tags = { "lua", "lit", "luvit" },
-    license = "LunaticPrivate",
+    license = "BSD-2-Clause",
     author = { name = "RainyXeon", email = "xeondev@xeondex.onmicrosoft.com" },
     homepage = "https://github.com/geta",
     dependencies = {
