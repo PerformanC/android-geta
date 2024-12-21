@@ -4,7 +4,7 @@ A simple log recorder, written in lua
 
 # Download
 
-[RainyXeon/android-geta/releases](https://github.com/RainyXeon/android-geta/releases/latest)
+[Click here to get the latest release](https://github.com/PerformanC/android-geta/releases/latest)
 
 # Commands
 
