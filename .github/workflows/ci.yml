@@ -21,7 +21,13 @@ jobs:
         run: ./lit install
 
       - name: Build binaries
-        run: ./luvit make
+        run: ./lit make
+
+      - name: Make build folder
+        run: mkdir build
+
+      - name: Move binaries
+        run: mv ./geta ./build/geta
 
       - name: Push LunaticSea binaries to artifact
         uses: actions/upload-artifact@v4
@@ -44,6 +50,12 @@ jobs:
 
       - name: Build bot
         run: ./luvit make
+
+      - name: Make build folder
+        run: mkdir build
+
+      - name: Move binaries
+        run: Move-Item -Path ./geta.exe -Destination ./build/geta.exe
 
       - name: Push LunaticSea binaries to artifact
         uses: actions/upload-artifact@v4
