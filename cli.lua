@@ -48,11 +48,11 @@ end
 
 print("")
 print("Rainy's android development tool: geta")
-print("--------------------------------------")
+print("---------------------------------------")
 print("Version     | " .. package.version)
 print("Description | " .. package.description)
 print("License     | " .. package.license)
-print("--------------------------------------")
+print("---------------------------------------")
 print("")
 
 local accept = { 'dmesg', 'logcat', 'ramoops', 'clear', 'clearall' }
@@ -146,12 +146,16 @@ childprocess.exec('adb devices', function (_, res)
 end)
 
 log(string.format('Device avaliable, now running log recorder... [%s]', mode))
+log(string.format('File avaliable in: %s', full_path))
 
 local function run_dmesg_recorder(file)
   local childProcess = require('childprocess')
   local child = childProcess.spawn('adb', {'shell', 'su', '-c', 'dmesg', '-w'}, {})
   child.stdout:on('data', function (data)
     fs.writeSync(file, -1, data)
+  end)
+  child.stdout:on('close', function ()
+    log('(FINISHED)')
   end)
 end
 
@@ -160,6 +164,9 @@ local function run_logcat_recorder(file)
   local child = childProcess.spawn('adb', {'shell', 'su', '-c', 'logcat'}, {})
   child.stdout:on('data', function (data)
     fs.writeSync(file, -1, data)
+  end)
+  child.stdout:on('close', function ()
+    log('(FINISHED)')
   end)
 end
 
@@ -170,7 +177,7 @@ local function run_ramoops_recorder(file)
     fs.writeSync(file, -1, data)
   end)
   child.stdout:on('close', function ()
-    log(string.format('(FINISHED) File avaliable in: %s', full_path))
+    log('(FINISHED)')
   end)
 end
 

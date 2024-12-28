@@ -1,6 +1,6 @@
   return {
     name = "geta",
-    version = "1.0.0",
+    version = "1.0.1",
     description = "A binary for getting logs",
     tags = { "lua", "lit", "luvit" },
     license = "BSD-2-Clause",
@@ -15,4 +15,3 @@
       "!*******-log"
     }
   }
-  
