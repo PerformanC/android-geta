@@ -9,7 +9,7 @@ local date_format = '%Y-%m-%d-%H-%M-%S'
 local mode = process.argv[2]
 local exarg = process.argv[3]
 
-if not string.match(process.argv[1], 'main.lua') then
+if process.argv[1] and (not string.match(process.argv[1], 'main.lua')) then
   mode = process.argv[1]
   exarg = process.argv[2]
 end
@@ -59,13 +59,14 @@ local accept = { 'dmesg', 'logcat', 'ramoops', 'clear', 'clearall' }
 local clear_arg_accept = { 'dmesg', 'logcat', 'ramoops' }
 
 local function print_manual()
-  print '------------------------------------------------------------------------------------'
+  print '---------------------------------------------------------------------------------------------'
   print 'dmesg                            | get dmesg log (live)'
   print 'logcat                           | get logcat log (live)'
   print 'ramoops                          | get ramoops log (last dmesg log before crash)'
   print 'clear [dmesg / ramoops / logcat] | clear specific log folder (folder name like mode)'
   print 'clearall                         | clear every folder that exist'
-  print '------------------------------------------------------------------------------------'
+  print 'help                             | print all command that avaliable (you can include nothing)'
+  print '---------------------------------------------------------------------------------------------'
   print ''
 end
 
